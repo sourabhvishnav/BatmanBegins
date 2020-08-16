@@ -14,7 +14,7 @@ var umbrella;
 var thunder, thunderCreatedFrame = 0;
 
 function preload(){
-  man_image = loadImage("Man.png");
+  man_image = loadImage("man.png");
   thunder1 = loadImage("thunder1.png");
   thunder2 = loadImage("thunder2.png");
   thunder3 = loadImage("thunder3.png");
