@@ -11,6 +11,7 @@ var maxDrops = 100;
 var drops = [];
 var thunder1, thunder2, thunder3;
 var umbrella;
+var thunder, thunderCreatedFrame = 0;
 
 function preload(){
   man_image = loadImage("Man.png");
@@ -42,8 +43,8 @@ function draw(){
 
   var rand = Math.round(random(1,2));
   if(frameCount%80===0){
-   var thunderCreatedFrame = frameCount;
-   var thunder = createSprite(random(10,370),random(10,30),10,10);
+    thunderCreatedFrame = frameCount;
+   thunder = createSprite(random(10,370),random(10,30),10,10);
    switch(rand){
      case 1 : thunder.addImage(thunder1);
      break;
@@ -54,15 +55,11 @@ function draw(){
      default : break;
    }
    console.log(thunderCreatedFrame);
-
-   if(frameCount %30===0){
-     thunder.destroy();
-   }
-
-  //  if(thunderCreatedFrame + 20===frameCount && thunder){
-  //     thunder.destroy();
-  //  }
   }
+  
+  if(thunderCreatedFrame + 20 === frameCount && thunder){
+    thunder.destroy();
+ }
 
   umbrella.display();
   
